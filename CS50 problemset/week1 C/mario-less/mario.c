@@ -7,13 +7,13 @@
 //   ######
 // ########
 #include <stdio.h>
-#include <cs50.h>
 int main()
 {
     int height;
     do
     {
-        height = get_int("height: \n");
+        printf("height: ");
+        scanf("%d", &height);
     }
     while(height < 1 || height > 8);
     for (int i = 1; i <= height; i++)
@@ -26,7 +26,7 @@ int main()
         {
             printf("#");
         }
-        printf("\n")
+        printf("\n");
     }
-    return 0
+    return 0;
 }
