@@ -16,7 +16,7 @@ int main()
     max = c>temp ? c : temp;
     printf("最大数为%d\n",max);
     
-    //90分及以上，赋A等 80分及以上，赋B等 70分及以上，赋C等
+    //90分及以上，赋A等 80分及以上，赋B等 70分及以上，赋C等 否则，赋D等
     char grade = max>=90 ? 'A' :
                  max>=80 ? 'B' :
                  max>=70 ? 'C' : 'D';
