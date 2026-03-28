@@ -5,6 +5,7 @@
 
 void swap(int *a, int *b);//声明函数swap，参数为两个指针，指向需要交换的变量
 void findMAXMIN(int arr[], int len, int* max, int* min);
+int getremainder(int a, int b, int* res);
 
 int main(){
     //指针定义格式
@@ -46,12 +47,24 @@ int main(){
     findMAXMIN(arr, len, &max, &min);
     printf("数组中的最大值是%d，最小值是%d\n", max, min);
 
+    //分离函数的运算和结果存储，即函数只负责计算结果，而不负责存储结果
+    int x;
+    int y;
+    printf("请输入两个整数：");
+    scanf("%d %d", &x, &y);
+    int res;
+    if(getremainder(x, y, &res) == 0){
+        printf("%d除以%d的余数是%d\n", x, y, res);
+    }
+
+    return 0;
 }
 
 void swap(int* a, int* b){
     int temp = *a;
     *a = *b;
     *b = temp;
+    return;
 }
 
 void findMAXMIN(int arr[], int len, int* max, int* min){
@@ -64,5 +77,16 @@ void findMAXMIN(int arr[], int len, int* max, int* min){
         if(arr[i] < *min){
             *min = arr[i];
         }
+    }
+    return;
+}
+
+int getremainder(int a, int b, int* res){
+    if (b != 0){
+        *res = a % b;
+        return 0;
+    } else {
+        printf("除数不能为0\n");
+        return 1;
     }
 }
