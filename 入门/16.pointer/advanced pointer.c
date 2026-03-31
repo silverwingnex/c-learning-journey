@@ -37,6 +37,8 @@ int main()
     *ppa = pb; //通过二级指针修改一级指针记录的数据地址
     pb = ptemp;
     printf("通过二级指针交换后pa = %p, pb = %p\n", pa, pb);
+
+    return 0;
 }
 
 
