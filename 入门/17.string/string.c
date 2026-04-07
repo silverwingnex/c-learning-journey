@@ -42,5 +42,31 @@ int main()
         printf("%s\n", str4[i]);
     }
 
+    //字符串常用函数
+
+    int len = strlen(str3);//获取长度，不包含'\0'
+    printf("你输入的字符串长度为：%d\n", len);
+
+    strcat (str3, " world");//字符串拼接，第一个字符串必须可以修改，且有足够的空间
+    printf("拼接后的字符串为：%s\n", str3);
+    strcpy (str3, "hello");//字符串复制，第一个字符串必须可以修改，且有足够的空间
+    printf("复制后的字符串为：%s\n", str3);
+
+    strcmp(str3, "hello");//字符串比较，返回值为0表示相等，正数表示第一个字符串大于第二个字符串，负数表示第一个字符串小于第二个字符串
+    if (strcmp(str3, "hello") == 0)
+    {
+        printf("字符串相等\n");
+    }
+    else
+    {
+        printf("字符串不相等\n");
+    }
+
+    _strlwr(str);//字符串转换为小写
+    printf("转换为小写后的字符串为：%s\n", str);
+
+    _strupr(str);//字符串转换为大写
+    printf("转换为大写后的字符串为：%s\n", str);
+
     return 0;
 }
