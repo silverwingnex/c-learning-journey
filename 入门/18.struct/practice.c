@@ -6,8 +6,8 @@ char get_max(struct viewpoint *vps, int n);
 
 struct viewpoint
 {
-    char name;
-    int votes;
+    char name;//0
+    int votes;//1 2 3 4 后面是空字符补齐4的倍数8
 };
 
 int main()
@@ -33,6 +33,10 @@ int main()
     }
     printf("得票最多的景点是: %c\n", max_name);
 
+    //结构体占用的内存大小
+    //内存对齐，因为硬件按块读取内存
+    printf("结构体占用的内存大小: %zu字节\n", sizeof(struct viewpoint));
+
     return 0;
 }
 
@@ -46,6 +50,14 @@ char get_max(struct viewpoint *vps, int n)
         {
             max = vps[i];
         }
+        else if (vps[i].votes == max.votes && vps[i].name < max.name) //票数相同，优先级比较
+        {
+            max = vps[i];
+        }
     }
+
     return max.name;
 }
+//内存对齐注意点
+//1.结构体成员的顺序会影响内存占用，建议将小类型放在前面，大类型放在后面，以减少填充字节的数量
+//2.结构体内可能会有填充字节，以满足对齐要求
